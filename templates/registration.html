@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body><center>
+    <h2>Register Student</h2>
+    <form action="/success" method="post">
+        <label>Student ID</label>
+        <input name="student_id" type="text" required>
+        <br><br>
+
+        <label>Student Name</label>
+        <input name="student_name" type="text" required>
+        <br><br>
+
+        <label>Email Address</label> 
+        <input name="student_email" type="email" required> 
+        <br><br>
+
+        <label>Phone Number</label>
+        <input name="phone_number" type="tel" required>
+        <br><br>
+        
+        <label>Year</label>
+        <select name="year" required>
+            <option value="">Select year</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

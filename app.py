@@ -1,22 +1,27 @@
 from flask import Flask, render_template, request
-#import flask in order to use it
 
 app = Flask(__name__)
-#instance of flask; passing variable __name__ to instance "app"
 
 @app.route('/')
-#app : decorator
-#/ : home url
-def hello():
-    return '<center><h2>Hello World</h2><br><a href="/register">Go to registration</a></center>'
-
-@app.route('/register')
-def register():
-    return render_template('register.html')
+def registration():
+    return render_template('registration.html')
 
 @app.route('/success', methods=['POST'])
 def success():
-    return '<center><h2>Registration Successful</h2></center>'
+    student_id = request.form.get('student_id', '')
+    student_name = request.form.get('student_name', '')
+    student_email = request.form.get('student_email', '')
+    phone_number = request.form.get('phone_number', '')
+    year = request.form.get('year', '')
 
-if __name__ == '__main__':
-    app.run(debug = True)
+    return render_template(
+        'success.html',
+        student_id=student_id,
+        student_name=student_name,
+        student_email=student_email,
+        phone_number=phone_number,
+        year=year
+    )
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)
